@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Train Animation</title>
+        <style>
+            body {
+                background-color: #f0f0f0;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding-top: 50px;
+            }
+            #train-container {
+                position: fixed;
+                margin-bottom: 20px;
+            }
+            #train {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200px;
+                height: auto;
+            }
+            #controls-container {
+                display: flex;
+                justify-content: center;
+            }
+            #controls {
+                margin-top: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="train-container">
+            <img id="train" src="./train.png" alt="Train" />
+        </div>
+        <div id="controls-container">
+            <div id="controls">
+                <button type="button" onclick="startAnimation()">Start</button>
+                <button type="button" onclick="stopAnimation()">Stop</button>
+            </div>
+        </div>
+        <script>
+            var train = document.getElementById('train');
+            var pos = 0;
+            var interval;
+            var trainWidth = train.width;
+
+            train.onload = function () {
+                trainWidth = train.width;
+            };
+
+            function startAnimation() {
+                if (!interval) {
+                    interval = setInterval(frame, 5);
+                }
+            }
+
+            function stopAnimation() {
+                clearInterval(interval);
+                interval = null;
+            }
+
+            function frame() {
+                if (pos >= window.innerWidth - trainWidth) {
+                    pos = 0;
+                } else {
+                    pos++;
+                }
+                train.style.left = pos + 'px';
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Instagram Login</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .login-container {
+                text-align: center;
+            }
+            .login-box {
+                width: 300px;
+                padding: 20px;
+                box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+            }
+            .login-box input[type='text'],
+            .login-box input[type='password'] {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            .login-box input[type='submit'] {
+                width: 100%;
+                padding: 15px;
+                background-color: #3897f0;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .remember-forgot {
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.85em;
+            }
+            .signup-link {
+                margin-top: 20px;
+                font-size: 0.9em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container">
+            <div class="login-box">
+                <h1 style="font-style: italic">Instagram</h1>
+                <input type="text" placeholder="Username" />
+                <br /><br />
+                <input type="password" placeholder="Password" />
+                <br /><br />
+                <input type="submit" value="Login" />
+                <br /><br />
+                <div class="remember-forgot">
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="remember"
+                            placeholder="checkbox"
+                        />
+                        Remember me
+                    </div>
+                    <div>
+                        <a href="#">Forgot password?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="signup-link">
+                <span
+                    >Don't have an account? <a href="#">Sign up here.</a></span
+                >
+            </div>
+        </div>
+    </body>
+</html>

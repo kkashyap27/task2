@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alphabetical Order</title>
+    </head>
+    <body>
+        <input type="text" placeholder="Enter the text" id="text" />
+        <button type="button">Enter</button>
+        <script>
+            let b = document.querySelector('button');
+            var str = document.getElementById('text').value;
+            b.addEventListener('click', function () {
+                var str = document.getElementById('text').value;
+                let res = str.toString().split('').sort().join('');
+                document.write(
+                    ' The entered string in alphabatical order is : ' + res
+                );
+            });
+        </script>
+    </body>
+</html>

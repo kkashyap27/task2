@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reverse Calculator</title>
+    </head>
+    <body>
+        <div>
+            <input type="number" required placeholder="Enter number" id="num" />
+            <button type="button">SUBMIT</button>
+        </div>
+
+        <script>
+            var num1 = document.getElementById('num').value;
+
+            let result = num1.toString().split('').reverse().join('');
+            let s = document.querySelector('button');
+
+            s.addEventListener('click', function () {
+                var num1 = document.getElementById('num').value;
+                let result = num1.toString().split('').reverse().join('');
+                document.write('The reverse of the entered num is ' + result);
+            });
+        </script>
+    </body>
+</html>

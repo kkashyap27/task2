@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form Validation</title>
+        <style>
+            .container {
+                width: 50%;
+                max-width: 500px;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                background-color: #fff;
+                font-weight: bold;
+            }
+            .error {
+                color: red;
+                display: none;
+            }
+
+            input:invalid,
+            textarea:invalid {
+                border: 2px solid red;
+            }
+
+            input:invalid + .error,
+            textarea:invalid + .error {
+                display: inline;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="myForm">
+            <div class="container">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" />
+                <span class="error" id="nameError">This field is required</span>
+                <br />
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" />
+                <span class="error" id="emailError"
+                    >A valid email address is required</span
+                >
+                <br />
+
+                <label for="website">Website:</label>
+                <input type="text" id="website" name="website" />
+                <span class="error" id="websiteError"
+                    >A valid URL is required</span
+                >
+                <br />
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <span class="error" id="messageError"
+                    >This field is required</span
+                >
+                <br />
+
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <script>
+            document
+                .getElementById('myForm')
+                .addEventListener('submit', function (event) {
+                    let isValid = true;
+
+                    const name = document.getElementById('name');
+                    const nameError = document.getElementById('nameError');
+                    if (name.value.trim() === '') {
+                        name.classList.add('invalid');
+                        nameError.style.display = 'inline';
+                        isValid = false;
+                    } else {
+                        name.classList.remove('invalid');
+                        nameError.style.display = 'none';
+                    }
+
+                    const email = document.getElementById('email');
+                    const emailError = document.getElementById('emailError');
+                    const emailPattern =
+                        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                    if (!emailPattern.test(email.value)) {
+                        email.classList.add('invalid');
+                        emailError.style.display = 'inline';
+                        isValid = false;
+                    } else {
+                        email.classList.remove('invalid');
+                        emailError.style.display = 'none';
+                    }
+
+                    const website = document.getElementById('website');
+                    const websiteError =
+                        document.getElementById('websiteError');
+                    const urlPattern =
+                        /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
+                    if (!urlPattern.test(website.value)) {
+                        website.classList.add('invalid');
+                        websiteError.style.display = 'inline';
+                        isValid = false;
+                    } else {
+                        website.classList.remove('invalid');
+                        websiteError.style.display = 'none';
+                    }
+
+                    const message = document.getElementById('message');
+                    const messageError =
+                        document.getElementById('messageError');
+                    if (message.value.trim() === '') {
+                        message.classList.add('invalid');
+                        messageError.style.display = 'inline';
+                        isValid = false;
+                    } else {
+                        message.classList.remove('invalid');
+                        messageError.style.display = 'none';
+                    }
+
+                    if (!isValid) {
+                        event.preventDefault();
+                    }
+                });
+        </script>
+    </body>
+</html>

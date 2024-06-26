@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form Validation</title>
+        <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            .error {
+                color: red;
+                font-size: 0.9em;
+            }
+            .is-invalid {
+                border-color: red;
+            }
+            .form-container {
+                max-width: 600px;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div class="form-container font-weight-bold">
+                <form id="myForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="firstName"
+                            placeholder="First Name"
+                        />
+                        <div class="error" id="firstNameError">
+                            Please supply your first name
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="lastName"
+                            placeholder="Last Name"
+                        />
+                        <div class="error" id="lastNameError">
+                            Please supply your last name
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            placeholder="E-Mail Address"
+                        />
+                        <div class="error" id="emailError">
+                            Please supply your email address
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="phone"
+                            placeholder="(+91)82750-19856"
+                        />
+                        <div class="error" id="phoneError">
+                            Please supply your phone number
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="address"
+                            placeholder="Address"
+                        />
+                        <div class="error" id="addressError">
+                            Please supply your street address
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="city"
+                            placeholder="City"
+                        />
+                        <div class="error" id="cityError">
+                            Please supply your city
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <select class="form-control" id="state">
+                            <option value="">Please select your state</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="AP">Andhra Pradesh</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Do you have hosting?</label><br />
+                        <div
+                            class="form-check form-check-inline font-weight-normal"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="hosting"
+                                id="hostingYes"
+                                value="yes"
+                            />
+                            <label class="form-check-label" for="hostingYes"
+                                >Yes</label
+                            >
+                        </div>
+                        <div
+                            class="form-check form-check-inline font-weight-normal"
+                        >
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="hosting"
+                                id="hostingNo"
+                                value="no"
+                            />
+                            <label class="form-check-label" for="hostingNo"
+                                >No</label
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDescription"
+                            >Project Description</label
+                        >
+                        <textarea
+                            class="form-control"
+                            id="projectDescription"
+                            rows="3"
+                            placeholder="Project Description"
+                        ></textarea>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-block"
+                        onclick="validateForm()"
+                    >
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm() {
+                var isValid = true;
+                var firstName = document.getElementById('firstName');
+                var firstNameError = document.getElementById('firstNameError');
+                if (firstName.value === '') {
+                    firstName.classList.add('is-invalid');
+                    firstNameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    firstName.classList.remove('is-invalid');
+                    firstNameError.style.display = 'none';
+                }
+
+                var lastName = document.getElementById('lastName');
+                var lastNameError = document.getElementById('lastNameError');
+                if (lastName.value === '') {
+                    lastName.classList.add('is-invalid');
+                    lastNameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    lastName.classList.remove('is-invalid');
+                    lastNameError.style.display = 'none';
+                }
+
+                var email = document.getElementById('email');
+                var emailError = document.getElementById('emailError');
+                if (email.value === '') {
+                    email.classList.add('is-invalid');
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    email.classList.remove('is-invalid');
+                    emailError.style.display = 'none';
+                }
+
+                var phone = document.getElementById('phone');
+                var phoneError = document.getElementById('phoneError');
+                if (phone.value === '') {
+                    phone.classList.add('is-invalid');
+                    phoneError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    phone.classList.remove('is-invalid');
+                    phoneError.style.display = 'none';
+                }
+
+                var address = document.getElementById('address');
+                var addressError = document.getElementById('addressError');
+                if (address.value === '') {
+                    address.classList.add('is-invalid');
+                    addressError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    address.classList.remove('is-invalid');
+                    addressError.style.display = 'none';
+                }
+
+                var city = document.getElementById('city');
+                var cityError = document.getElementById('cityError');
+                if (city.value === '') {
+                    city.classList.add('is-invalid');
+                    cityError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    city.classList.remove('is-invalid');
+                    cityError.style.display = 'none';
+                }
+
+                if (isValid) {
+                    alert('Form submitted successfully!');
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var errors = document.querySelectorAll('.error');
+                errors.forEach(function (error) {
+                    error.style.display = 'none';
+                });
+            });
+        </script>
+    </body>
+</html>

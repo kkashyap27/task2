@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Multiplication and Division</title>
+        <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            .calc-container {
+                max-width: 400px;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div class="calc-container">
+                <div class="form-group">
+                    <label for="num1">First number:</label>
+                    <input type="number" class="form-control" id="num1" />
+                </div>
+                <div class="form-group">
+                    <label for="num2">Second number:</label>
+                    <input type="number" class="form-control" id="num2" />
+                </div>
+                <div class="text-left">
+                    <button
+                        class="btn btn-light border-dark"
+                        onclick="multiply()"
+                    >
+                        Multiply
+                    </button>
+                    <button
+                        class="btn btn-light border-dark"
+                        onclick="divide()"
+                    >
+                        Divide
+                    </button>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="result">Result:</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="result"
+                        readonly
+                    />
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function multiply() {
+                var num1 = parseFloat(document.getElementById('num1').value);
+                var num2 = parseFloat(document.getElementById('num2').value);
+                if (!isNaN(num1) && !isNaN(num2)) {
+                    document.getElementById('result').value = num1 * num2;
+                } else {
+                    document.getElementById('result').value =
+                        'Please enter valid numbers';
+                }
+            }
+
+            function divide() {
+                var num1 = parseFloat(document.getElementById('num1').value);
+                var num2 = parseFloat(document.getElementById('num2').value);
+                if (!isNaN(num1) && !isNaN(num2)) {
+                    if (num2 !== 0) {
+                        document.getElementById('result').value = num1 / num2;
+                    } else {
+                        document.getElementById('result').value =
+                            'Cannot divide by zero';
+                    }
+                } else {
+                    document.getElementById('result').value =
+                        'Please enter valid numbers';
+                }
+            }
+        </script>
+    </body>
+</html>

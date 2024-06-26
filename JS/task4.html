@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Date and Time</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: contents;
+                height: 20vh;
+            }
+
+            button {
+                display: block;
+                margin: 10px;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+            .output {
+                margin-top: 20px;
+                margin-left: 20px;
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <button onclick="showDate()">Show Date</button>
+            <div class="output" id="output1"></div>
+            <button onclick="showTime()">Show Time</button>
+            <div class="output" id="output2"></div>
+        </div>
+
+        <script>
+            function showDate() {
+                const months = [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                ];
+                const now = new Date();
+                const day = String(now.getDate()).padStart(2, '0');
+                const month = months[now.getMonth()];
+                const year = now.getFullYear();
+                document.getElementById(
+                    'output1'
+                ).innerText = `${day}/${month}/${year}`;
+            }
+
+            function showTime() {
+                const days = [
+                    'Sunday',
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday',
+                    'Saturday',
+                ];
+                const months = [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                ];
+                const now = new Date();
+                const dayName = days[now.getDay()];
+                const monthName = months[now.getMonth()];
+                const day = now.getDate();
+                const year = now.getFullYear();
+                const time = now.toLocaleTimeString('en-US', {
+                    timeZone: 'Asia/Kolkata',
+                });
+                document.getElementById(
+                    'output2'
+                ).innerText = `${dayName} ${monthName} ${day} ${year} ${time} GMT+0530 (Indian Standard Time)`;
+            }
+        </script>
+    </body>
+</html>

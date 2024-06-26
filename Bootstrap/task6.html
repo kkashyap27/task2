@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form Validation</title>
+        <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            .error {
+                color: red;
+                font-size: 0.9em;
+            }
+            .is-invalid {
+                border-color: red;
+            }
+            .form-container {
+                max-width: 400px;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div class="form-container font-weight-bold">
+                <form id="myForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" />
+                        <div class="error" id="nameError">Name is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" />
+                        <div class="error" id="emailError">
+                            Email is required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                        />
+                        <div class="error" id="passwordError">
+                            Password is required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hobbies">Hobbies</label>
+                        <select class="form-control" id="hobbies">
+                            <option value=""></option>
+                            <option value="Dancing">Dancing</option>
+                            <option value="Painting">Painting</option>
+                            <option value="Singing">Singing</option>
+                            <option value="Coding">Coding</option>
+                            <option value="Reading">Reading</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn btn-danger btn-block"
+                        onclick="validateForm()"
+                    >
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm() {
+                var isValid = true;
+                var name = document.getElementById('name');
+                var nameError = document.getElementById('nameError');
+                if (name.value === '') {
+                    name.classList.add('is-invalid');
+                    nameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    name.classList.remove('is-invalid');
+                    nameError.style.display = 'none';
+                }
+
+                var email = document.getElementById('email');
+                var emailError = document.getElementById('emailError');
+                if (email.value === '') {
+                    email.classList.add('is-invalid');
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    email.classList.remove('is-invalid');
+                    emailError.style.display = 'none';
+                }
+
+                var password = document.getElementById('password');
+                var passwordError = document.getElementById('passwordError');
+                if (password.value === '') {
+                    password.classList.add('is-invalid');
+                    passwordError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    password.classList.remove('is-invalid');
+                    passwordError.style.display = 'none';
+                }
+
+                if (isValid) {
+                    alert('Form submitted successfully!');
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var errors = document.querySelectorAll('.error');
+                errors.forEach(function (error) {
+                    error.style.display = 'none';
+                });
+            });
+        </script>
+    </body>
+</html>
