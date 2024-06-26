@@ -8,18 +8,119 @@
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
             rel="stylesheet"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
         <style>
-            .navbar {
-                background-color: #f7b500;
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
-            .navbar-brand {
-                font-size: 2.5rem;
-                font-weight: bold;
+
+            body {
+                background-color: black;
+                color: rgb(0, 0, 0);
+                font-family: Arial, sans-serif;
             }
-            .navbar-nav .nav-link {
-                color: #000;
-            }
+
             .header {
+                background-color: #ffc400;
+                padding: 10px;
+            }
+
+            .head1,
+            .head2 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .head1 {
+                padding: 10px 0;
+            }
+
+            .head2 {
+                background-color: rgba(51, 41, 9, 0.967);
+                padding: 10px;
+                width: 100%;
+            }
+
+            .logo h1 {
+                font-size: 2rem;
+            }
+
+            .menu {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .menu p {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+
+            .menu i {
+                font-size: 1.5rem;
+                margin-right: 5px;
+            }
+
+            .navitems ul {
+                display: flex;
+                list-style: none;
+                padding: 0;
+            }
+
+            .navitems ul li {
+                margin: 0 10px;
+            }
+
+            .navitems ul li a {
+                color: white;
+                text-decoration: none;
+                font-size: 1rem;
+            }
+
+            button {
+                background-color: rgba(58, 56, 50, 0.967);
+                color: white;
+                font-size: 1rem;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+                cursor: pointer;
+                margin: 10px 0;
+            }
+
+            @media (max-width: 768px) {
+                .head1,
+                .head2 {
+                    flex-direction: column;
+                }
+
+                .menu {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .menu p {
+                    margin: 5px 0;
+                }
+
+                .navitems ul {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .navitems ul li {
+                    margin: 5px 0;
+                }
+            }
+
+            .content {
                 background-image: url('construction.jpg');
                 background-size: cover;
                 color: white;
@@ -62,46 +163,36 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-                <h1 class="navbar-brand">Builderz</h1>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Service</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Project</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                    </ul>
+        <div class="header">
+            <div class="head1">
+                <div class="logo">
+                    <h1 class="font-weight-bolder">Builderz</h1>
+                </div>
+                <div class="menu">
+                    <i class="fa fa-business-time"></i>
+                    <p>Operating time</p>
+                    <i class="fa fa-user-nurse"></i>
+                    <p>Workers help</p>
+                    <i class="fa fa-shopping-cart"></i>
+                    <p>Shop now</p>
                 </div>
             </div>
-        </nav>
+            <div class="head2">
+                <div class="navitems">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="getquote">Get Quote</button>
+            </div>
+        </div>
 
-        <header class="header">
+        <header class="content">
             <div class="container">
                 <h4>We Are Professional</h4>
                 <h1 class="font-weight-bolder">For Your Dream Project</h1>
